@@ -9,3 +9,4 @@ fun cube(x: int) = pow(x, 3);
 
 val s = cube(4);
 val f = pow(4, 2 + 2) + cube(5);
+
