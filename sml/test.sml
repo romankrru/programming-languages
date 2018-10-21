@@ -1,2 +1,2 @@
-val x = 3 + 5;
+val x = 3 + 1;
 val y = x * 5;
