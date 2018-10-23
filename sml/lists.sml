@@ -95,3 +95,5 @@ fun factorial2 (n: int) =
     product_list(countdown n);
 
 factorial2 5;
+
+
