@@ -17,3 +17,18 @@ fun is_older (d1 : int*int*int, d2 : int*int*int) =
 val test1 = is_older((1,2,3),(2,3,4)) = true;
 val test1 = is_older((4,2,3),(2,3,4)) = false;
 val test1 = is_older((1,2,3),(1,2,3)) = false;
+
+(* Write a function `number_in_month` that takes a list of dates and
+a month (i.e., an int) and returns
+how many dates in the list are in the given month *)
+
+fun number_in_month (dates : (int*int*int) list, month : int) =
+    if null dates
+    then 0
+    else if #2 (hd dates) = month
+    then 1 + number_in_month(tl dates, month)
+    else number_in_month(tl dates, month);
+
+val test = number_in_month([(2012,2,28),(2013,12,1)],2) = 1;
+val test = number_in_month([(2012,2,28),(2013,2,1)],2) = 2;
+val test = number_in_month([(2012,2,28),(2013,12,1)],3) = 0;
