@@ -104,6 +104,14 @@ fun get_nth (xs: string list, n: int) =
         helper(xs, 1)
     end;
 
+fun get_nth (xs: string list, n: int) =
+    if n=1
+    then hd xs
+    else get_nth(tl xs, n-1);
+
 val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there";
 val test6 = get_nth(["hi", "there", "how", "are", "you"], 1) = "hi";
 val test6 = get_nth(["hi", "there", "how", "are", "you"], 5) = "you";
+
+(* 7 *)
+
