@@ -86,3 +86,24 @@ fun dates_in_months (dates: (int*int*int) list, months: int list) =
     else dates_in_month(dates, hd months) @ dates_in_months(dates, tl months);
 
 val test5 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)];
+
+(* 6 *)
+
+(* Write a function get_nth that takes a list of strings and an int n and returns the n th
+element of the list where the head of the list is 1 st . Do not worry about the case
+where the list has too few elements: your function may apply hd or tl to the empty list
+in this case, which is okay. *)
+
+fun get_nth (xs: string list, n: int) =
+    let
+        fun helper (xs: string list, c: int) =
+            if c=n
+            then hd xs
+            else helper(tl xs, c+1);
+    in
+        helper(xs, 1)
+    end;
+
+val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there";
+val test6 = get_nth(["hi", "there", "how", "are", "you"], 1) = "hi";
+val test6 = get_nth(["hi", "there", "how", "are", "you"], 5) = "you";
