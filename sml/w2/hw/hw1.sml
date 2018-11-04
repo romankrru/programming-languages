@@ -123,7 +123,15 @@ comma following the day and use capitalized English month names: January, Februa
 May, June, July, August, September, October, November, December. *)
 
 fun date_to_string (date: (int*int*int)) =
-    "2";
+    let
+        val months_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        val month_str = get_nth(months_list, #2 date);
+        val year_str = Int.toString(#1 date);
+        val day_str = Int.toString(#3 date);
+    in
+        month_str ^ " " ^ day_str ^ ", " ^ year_str
+    end;
 
+(* date_to_string((2013, 6, 1)) *)
 val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013";
-
+(* date_to_string((2013, 5, 2)) *)
