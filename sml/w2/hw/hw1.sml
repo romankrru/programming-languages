@@ -122,5 +122,8 @@ Instead, use a list holding 12 strings and your answer to the previous problem. 
 comma following the day and use capitalized English month names: January, February, March, April,
 May, June, July, August, September, October, November, December. *)
 
-fun date_to_string (date: (int*int*int) list) =
+fun date_to_string (date: (int*int*int)) =
     "2";
+
+val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013";
+
