@@ -175,3 +175,11 @@ fun month_range (day1: int, day2: int) =
 
 val test10 = month_range(31, 34) = [1,2,2,2];
 
+(* 11 *)
+
+(* Write a function oldest that takes a list of dates and evaluates to an (int*int*int) option. It
+evaluates to NONE if the list has no dates and SOME d if the date d is the oldest date in the list. *)
+
+fun olders (dates: (int*int*int) list) =
+    2;
+
