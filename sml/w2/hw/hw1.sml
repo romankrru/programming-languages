@@ -135,3 +135,19 @@ fun date_to_string (date: (int*int*int)) =
 (* date_to_string((2013, 6, 1)) *)
 val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013";
 (* date_to_string((2013, 5, 2)) *)
+
+(* 8 *)
+
+(* Write a function number_before_reaching_sum that takes an int called sum, which you can assume
+is positive, and an int list, which you can assume contains all positive numbers, and returns an int.
+You should return an int n such that the first n elements of the list add to less than sum, but the first
+n + 1 elements of the list add to sum or more. Assume the entire list sums to more than the passed in
+value; it is okay for an exception to occur if this is not the case. *)
+
+fun number_before_reaching_sum (sum: int, xs: int list) =
+    if sum - hd xs <= 0
+    then 0
+    else 1 + number_before_reaching_sum(sum - hd xs, tl xs);
+
+val test8 = number_before_reaching_sum(10, [1,2,3,4,5]) = 3;
+val test8 = number_before_reaching_sum(12, [1,2,3,4,5]);
