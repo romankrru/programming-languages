@@ -8,7 +8,7 @@ fun max_constant e =
         fun max_of_two(e1, e2) =
             let val m1 = max_constant e1
                 val m2 = max_constant e2
-            in if m1 > m2 then m1 else m2 end
+            in Int.max(m1,m2) end
     in
         case e of
             Constant i => i
