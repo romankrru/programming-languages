@@ -6,9 +6,7 @@ datatype exp = Constant of int
 fun max_constant e =
     let
         fun max_of_two(e1, e2) =
-            let val m1 = max_constant e1
-                val m2 = max_constant e2
-            in Int.max(m1,m2) end
+            Int.max(max_constant e1, max_constant e2)
     in
         case e of
             Constant i => i
