@@ -35,3 +35,10 @@ fun multsign (x1, x2) =
 multsign (1, 2);
 multsign (1, ~2);
 multsign (0, ~23);
+
+fun len xs =
+    case xs of
+        [] => 0
+      | _::xs' => 1 + len xs';
+
+len [1, 2, 3];
