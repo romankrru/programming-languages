@@ -42,3 +42,8 @@ fun len xs =
       | _::xs' => 1 + len xs';
 
 len [1, 2, 3];
+
+fun append ([],ys) = ys
+  | append (x::xs', ys) = x :: append(xs', ys);
+
+append([1,2],[3, 5]);
