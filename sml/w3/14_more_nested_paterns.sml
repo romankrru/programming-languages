@@ -11,7 +11,7 @@ nondecreasing_1 [1, 7, 2, 3];
 fun nondecreasing xs =
     case xs of
         [] => true
-      | xs::[] => true
+      | _::[] => true
       | head::(neck::rest) => head <= neck andalso nondecreasing rest;
 
 nondecreasing [1, 2, 3];
