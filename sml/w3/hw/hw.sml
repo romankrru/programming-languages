@@ -7,8 +7,18 @@ fun same_string(s1 : string, s2 : string) =
     s1 = s2;
 
 fun all_except_option (x, xs) =
-    SOME [];
+    let
+        fun aux ys =
+            case ys of
+                [] => []
+              | y::ys' => if same_string(x, y)
+                          then aux(ys')
+                          else y::aux(ys')
+        val res = aux(xs)
+    in
+        if xs = res then NONE else SOME res
+    end;
 
-val test1 = all_except_option("string", ["string"]) = SOME []
-val tes1a = all_except_option("string", ["string2", "string3"]) = NONE
-val test1b = all_except_option("string", ["string2", "string", "string3"]) = SOME ["string2", "string3"]
+val test1 = all_except_option("string", ["string"]) = SOME [];
+val tes1a = all_except_option("string", ["string2", "string3"]) = NONE;
+val test1b = all_except_option("string", ["string2", "string", "string3"]) = SOME ["string2", "string3"];
